@@ -12,14 +12,14 @@ for x in range(9):
     for y in range(9):
         box_pos.append([54+82*y,310+82*x,114,114])
 #450+55*y,240+55*x,75,75
-print("Ready")
-keyboard.wait('insert')
+print("Ready. Press insert on your keyboard to start.")
+keyboard.wait('insert') #change this to any key on your keyboard to change the start key.
 
 grid = [[],[],[],[],[],[],[],[],[]]
 
 for i, x in enumerate(box_pos):
-    image = np.array(pag.screenshot('folk.png', region=x))
-    img = cv2.imread('folk.png')
+    image = np.array(pag.screenshot('sudokuScreenshot.png', region=x))
+    img = cv2.imread('sudokuScreenshot.png')
     img = cv2.resize(img, None, fx=4, fy=4, interpolation=cv2.INTER_CUBIC)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     img = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
