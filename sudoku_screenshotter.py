@@ -1,7 +1,6 @@
 import easyocr
 import pyautogui as pag
 import keyboard
-import numpy as np
 import cv2
 from sudoku_solver import solve
 
@@ -18,7 +17,7 @@ keyboard.wait('insert') #change this to any key on your keyboard to change the s
 grid = [[],[],[],[],[],[],[],[],[]]
 
 for i, x in enumerate(box_pos):
-    image = np.array(pag.screenshot('sudokuScreenshot.png', region=x))
+    pag.screenshot('sudokuScreenshot.png', region=x)
     img = cv2.imread('sudokuScreenshot.png')
     img = cv2.resize(img, None, fx=4, fy=4, interpolation=cv2.INTER_CUBIC)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
